@@ -24,3 +24,90 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+#map-container {
+    height: calc(100vh - 113px);
+    width: auto;
+    
+    div:not(#mapbox-directions-origin-input):not(#mapbox-directions-destination-input) > .mapboxgl-ctrl-geocoder {
+        width: calc(100vw - 2rem);
+        min-width: calc(100vw - 2rem);
+        max-width: calc(100vw - 2rem);
+        margin: 1rem;
+
+        .mapboxgl-ctrl-geocoder--icon-search {
+            position: absolute;
+            top: 8px;
+            left: 12px;
+            width: 23px;
+            height: 23px;
+        }
+
+        .mapboxgl-ctrl-geocoder--input {
+            font-size: inherit;
+            padding: 6px 35px;
+        }
+    }
+
+    .mapboxgl-ctrl-directions {
+        min-width: calc(100vw - 2rem);
+        max-width: calc(100vw - 2rem);
+        margin: 1rem;
+
+        .directions-control-instructions {
+            max-width: 300px;
+        }
+
+        .mapbox-directions-route-summary + .mapbox-directions-instructions {
+            overflow: auto;
+        }
+    }
+}
+
+#map7-container {
+    height: calc(100vh - 219px);
+    width: auto;
+    
+    .mapboxgl-popup-content {
+        width: 650px;
+    }
+}
+
+#map1,
+#map2,
+#map3,
+#map4,
+#map5,
+#map6,
+#map7 {
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.autocomplete {
+    width: 100%;
+
+    ion-list {
+        position: absolute;
+        width: inherit;
+        overflow-y: scroll;
+        max-height: calc(100% - 58px);
+        z-index: 999;
+
+        ion-item:hover {
+            cursor: pointer;
+        }
+    }
+}
+    
+.mapboxgl-popup-content {
+    max-height: 500px;
+    color: #000000;
+    overflow: auto;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.55);
+
+    .mapboxgl-popup-close-button {
+        font-size: 30px;
+    }
+}

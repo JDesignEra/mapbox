@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ICA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="autocomplete">
+    <ion-searchbar type="text" debounce=500 placeholder="Search for local library" (ionChange)="populateSearch($event)" [value]="searchTxt"></ion-searchbar>
+    
+    <ion-list *ngIf="searchList" lines="full">
+      <ion-item *ngFor="let item of searchList" (click)="searchListClick($event)">
+        {{ item }}
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div id="map7-container">
+    <div #map id="map7"></div>
+  </div>
+
+  <ion-segment (ionChange)="changeMapStyle($event)" value="streets-v11">
+    <ion-segment-button value="streets-v11">
+      <ion-label>Streets</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="light-v10">
+      <ion-label>Light</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="dark-v10">
+      <ion-label>Dark</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="satellite-v9">
+      <ion-label>Satellite</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-content>
