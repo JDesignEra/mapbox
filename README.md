@@ -6,7 +6,7 @@ npm i @mapbox/mapbox-gl-directions --save
 ```
 
 # NOTES
-ICA working files are mostly in `src/app/tab-ica`, and ICA page when served is in the ICA tab page (`localhost:8100/tabs/ICA`).
+ICA working files are mostly in `src/app/tab-ica`, and ICA page when served is in the ICA tab page (`localhost:8100/tabs/ICA`). Local .geojson file for part of the ICA requirements is located in `src/assets/data/libraries-geojson.geojson`.
 
 ### mapbox.service
 Added `shared/services/mapbox.service` as I was too lazy to retype both the codes for create a new Mapbox map with api key, and the code to create a new Mapbox marker. Therefore, I decided to create a function for it just to type lesser characters.
