@@ -18,5 +18,5 @@ All CSS code are in `global.scss` instead of their individual .scss file. I had 
 
 ***
 
-##### Github Profile
-[Joel [ JDesignEra ]](https://github.com/JDesignEra)
+##### Github
+[ICA repo](https://github.com/JDesignEra/mapbox) by [Joel [ JDesignEra ]](https://github.com/JDesignEra)
