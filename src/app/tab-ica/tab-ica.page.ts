@@ -36,11 +36,11 @@ export class TabIcaPage implements AfterContentInit {
 
   loadData() {
     /*
-    * Donwload from https://data.gov.sg/dataset/libraries?resource_id=f6422e78-d829-4b36-b91a-0eed9cff3f7d
+    * GeoJson file donwloaded from https://data.gov.sg/dataset/libraries?resource_id=f6422e78-d829-4b36-b91a-0eed9cff3f7d
     * Modified the properties.name manually in the .geojson file,
     * as it's name value doesn't work/nonsensical in this use case.
-    * .geometry.coordinates has an object length of 3, where mapbox coordinates uses an object length of 2,
-    * but this shouldn't be an issue as the first 2 number of the object are still [lng, lat].
+    * .geometry.coordinates has 3 objects, where mapbox coordinates uses 2 object,
+    * but this shouldn't be an issue as the first 2 objects are still [lng, lat].
     */
     this.http.get('./../assets/data/libraries-geojson.geojson').subscribe(data => {
       const datas = data["features"];
@@ -75,7 +75,7 @@ export class TabIcaPage implements AfterContentInit {
         });
 
       /*
-      * Empty out search list and flyTo map if it has only 1 matches, 
+      * Empty out search list and flyTo marker if it has only 1 item, 
       * and it matches the searchbar value.
       */
       if (this.searchList && this.searchList.length == 1 && this.searchList[0] == val) {
@@ -106,6 +106,7 @@ export class TabIcaPage implements AfterContentInit {
     }
   }
 
+  // Set searchbar text with clicked search list text.
   searchListClick(e: any) {
     this.searchTxt = `${e.target.innerHTML}`.trim();
   }
@@ -115,6 +116,7 @@ export class TabIcaPage implements AfterContentInit {
     this.map.setStyle(`mapbox://styles/mapbox/${val}`);
   }
 
+  // Function to reformat geoJson properties.Description to desired HTML.
   reformatHtml(title:string,html: string) {
     let s: any = html.replace(/<[^>]+>/g, "");  // Remove HTML tags.
     s = s.substring(11, s.length).split("  ");  // Remove starting "Attributes" text and split
@@ -134,15 +136,14 @@ export class TabIcaPage implements AfterContentInit {
         ${title}
       </h5>`;
 
-    s.forEach(i => {
-      const item = i.trim();
+    s.forEach(str => {
+      const item = str.trim();
 
       if (item) {
         let v = item.split(" ");
-        
         const k = v.splice(0, 1)[0];
-        v = v.join(" ");
 
+        // If value is a link, wrapped it with <a></a> tag.
         if (v.substring(0, 7) == "http://" || v.substring(0, 8) == "https://") {
           v = `<a href="${v}" target="_blank">${v}</a>`;
         }
