@@ -66,7 +66,8 @@ export class TabIcaPage implements AfterContentInit {
   populateSearch(e: any) {
     const val = e.target.value.trim();
 
-    /* Fixed issue where clicking on the same list item
+    /*
+    * Fixed issue where clicking on the same list item
     * on the 2nd time doesn't update the searchbar text.
     */
     this.searchTxt = val;
