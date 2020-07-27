@@ -142,7 +142,7 @@ export class TabIcaPage implements AfterContentInit {
     }
     
     // Format into desired HTML code
-    let formatted: string = `<h5 style="text-align: center; font-weight: 700; text-decoration: underline; margin: 1.5rem 0;">
+    let formatted: string = `<h5 style="text-align: center; font-weight: 700; text-decoration: underline; margin: 1rem 0 1.5rem 0;">
         ${title}
       </h5>`;
 
@@ -160,7 +160,7 @@ export class TabIcaPage implements AfterContentInit {
           v = `<a href="${v}" target="_blank">${v}</a>`;
         }
 
-        formatted += `<p style="margin: 1rem 0; text-align: center;">
+        formatted += `<p style="margin: 1rem 0 0 0; text-align: center;">
             <span style="font-family: 2rem; font-weight: 700;">${k}</span>
             <br/>${v}
           </p>`;
