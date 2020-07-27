@@ -94,7 +94,7 @@ export class TabIcaPage implements AfterContentInit {
             zoom: 13
           });
 
-          // Open matched popup and close all other popeup
+          // Open matched popup and close all other popups
           for (let i = 0; i < this.mArray.length; i++) {
             const marker = this.mArray[i]["marker"];
             const popup = marker.getPopup();
