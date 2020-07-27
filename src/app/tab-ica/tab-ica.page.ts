@@ -123,8 +123,7 @@ export class TabIcaPage implements AfterContentInit {
   }
 
   changeMapStyle(e: any) {
-    const val = e.target.value.trim();
-    this.map.setStyle(`mapbox://styles/mapbox/${val}`);
+    this.map.setStyle(`mapbox://styles/mapbox/${e.target.value.trim()}`);
   }
 
   // Function to reformat geoJson properties.Description to desired HTML.
