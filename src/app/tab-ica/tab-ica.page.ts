@@ -65,6 +65,11 @@ export class TabIcaPage implements AfterContentInit {
 
   populateSearch(e: any) {
     const val = e.target.value.trim();
+
+    /* Fixed issue where clicking on the same list item
+    * on the 2nd time doesn't update the searchbar text.
+    */
+    this.searchTxt = val;
     
     if (val) {
       // Populate searchList
@@ -91,9 +96,8 @@ export class TabIcaPage implements AfterContentInit {
           
           // Open popup if is not opened.
           const marker = this.mArray[idx]["marker"];
-          const popup = marker.getPopup();
 
-          if (!popup.isOpen()) {
+          if (!marker.getPopup().isOpen()) {
             marker.togglePopup();
           }
         }
@@ -142,6 +146,8 @@ export class TabIcaPage implements AfterContentInit {
       if (item) {
         let v = item.split(" ");
         const k = v.splice(0, 1)[0];
+
+        v = v.join(" ");
 
         // If value is a link, wrapped it with <a></a> tag.
         if (v.substring(0, 7) == "http://" || v.substring(0, 8) == "https://") {
