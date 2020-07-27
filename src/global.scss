@@ -60,9 +60,12 @@ ion-tabs {
     }
 
     .mapboxgl-ctrl-directions {
-        min-width: calc(100vw - 2rem);
-        max-width: calc(100vw - 2rem);
         margin: 1rem;
+
+        .mapbox-directions-component {
+            min-width: calc(100vw - 2rem);
+            max-width: calc(100vw - 2rem);
+        }
 
         .directions-control-instructions {
             max-width: 300px;
