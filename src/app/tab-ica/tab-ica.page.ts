@@ -101,9 +101,9 @@ export class TabIcaPage implements AfterContentInit {
             const popup = marker.getPopup();
 
             if (i == idx && !popup.isOpen()) {
-              marker.togglePopup();
+                marker.togglePopup();
             }
-            else if (popup.isOpen()) {
+            else if (i != idx && popup.isOpen()) {
               marker.togglePopup();
             }
           }
