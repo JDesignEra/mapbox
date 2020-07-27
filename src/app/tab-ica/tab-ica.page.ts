@@ -127,7 +127,7 @@ export class TabIcaPage implements AfterContentInit {
   }
 
   // Function to reformat geoJson properties.Description to desired HTML.
-  reformatHtml(title:string,html: string) {
+  reformatHtml(title:string, html: string) {
     let s: any = html.replace(/<[^>]+>/g, "");  // Remove HTML tags.
     s = s.substring(11, s.length).split("  ");  // Remove starting "Attributes" text and split
     
