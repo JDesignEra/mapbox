@@ -93,12 +93,18 @@ export class TabIcaPage implements AfterContentInit {
             center: this.mArray[idx]["coords"],
             zoom: 13
           });
-          
-          // Open popup if is not opened.
-          const marker = this.mArray[idx]["marker"];
 
-          if (!marker.getPopup().isOpen()) {
-            marker.togglePopup();
+          // Open matched popup and close all other popeup
+          for (let i = 0; i < this.mArray.length; i++) {
+            const marker = this.mArray[i]["marker"];
+            const popup = marker.getPopup();
+
+            if (i == idx && !popup.isOpen()) {
+              marker.togglePopup();
+            }
+            else if (popup.isOpen()) {
+              marker.togglePopup();
+            }
           }
         }
 
